@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  api_net:
+    build: .
+    network_mode: 'host'
+    environment:
+      TEST_MODULE: 'net'
+    deploy:
+      resources:
+        limits:
+          cpus: 1
+          memory: 200MB
+
+  api_http:
+    build: .
+    environment:
+      TEST_MODULE: 'http'
+    network_mode: 'host'
+    deploy:
+      resources:
+        limits:
+          cpus: 1
+          memory: 200MB
